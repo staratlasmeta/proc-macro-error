@@ -1,35 +1,23 @@
-warning: panic message is not a string literal
-   --> src/lib.rs:472:12
-    |
-472 |     panic!(AbortNow)
-    |     ------ ^^^^^^^^
-    |     |
-    |     help: use std::panic::panic_any instead: `std::panic::panic_any`
-    |
-    = note: `#[warn(non_fmt_panics)]` on by default
-    = note: this usage of panic!() is deprecated; it will be a hard error in Rust 2021
-    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2021/panic-macro-consistency.html>
-
 error: main macro message
- --> tests/ui/children_messages.rs:4:20
+ --> $DIR/children_messages.rs:4:20
   |
 4 | children_messages!(one, two, three, four);
   |                    ^^^
 
 error: child message
- --> tests/ui/children_messages.rs:4:25
+ --> $DIR/children_messages.rs:4:25
   |
 4 | children_messages!(one, two, three, four);
   |                         ^^^
 
 error: main syn::Error
- --> tests/ui/children_messages.rs:4:30
+ --> $DIR/children_messages.rs:4:30
   |
 4 | children_messages!(one, two, three, four);
   |                              ^^^^^
 
 error: child syn::Error
- --> tests/ui/children_messages.rs:4:37
+ --> $DIR/children_messages.rs:4:37
   |
 4 | children_messages!(one, two, three, four);
   |                                     ^^^^

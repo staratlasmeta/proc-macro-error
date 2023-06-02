@@ -1,5 +1,7 @@
 # Makes error reporting in procedural macros nice and easy
 
+## This is a fork of [proc-macro-error](https://gitlab.com/CreepySkeleton/proc-macro-error) with `syn` bumped to v2
+
 [![travis ci](https://travis-ci.org/CreepySkeleton/proc-macro-error.svg?branch=master)](https://travis-ci.org/CreepySkeleton/proc-macro-error)
 [![docs.rs](https://docs.rs/proc-macro-error/badge.svg)](https://docs.rs/proc-macro-error)
 [![unsafe forbidden](https://img.shields.io/badge/unsafe-forbidden-success.svg)](https://github.com/rust-secure-code/safety-dance/)

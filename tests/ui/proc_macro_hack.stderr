@@ -1,42 +1,30 @@
-warning: panic message is not a string literal
-   --> src/lib.rs
-    |
-    |     panic!(AbortNow)
-    |     ------ ^^^^^^^^
-    |     |
-    |     help: use std::panic::panic_any instead: `std::panic::panic_any`
-    |
-    = note: `#[warn(non_fmt_panics)]` on by default
-    = note: this usage of panic!() is deprecated; it will be a hard error in Rust 2021
-    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2021/panic-macro-consistency.html>
-
 error: BOOM
- --> tests/ui/proc_macro_hack.rs:8:25
+ --> $DIR/proc_macro_hack.rs:8:25
   |
 8 |     let nine = add_one!(two) + add_one!(2 + 3);
   |                         ^^^
   |
-  = note: this error originates in the macro `proc_macro_call` (in Nightly builds, run with -Z macro-backtrace for more info)
+  = note: this error originates in the macro `proc_macro_call` which comes from the expansion of the macro `add_one` (in Nightly builds, run with -Z macro-backtrace for more info)
 
 error: BOOM
- --> tests/ui/proc_macro_hack.rs:8:41
+ --> $DIR/proc_macro_hack.rs:8:41
   |
 8 |     let nine = add_one!(two) + add_one!(2 + 3);
   |                                         ^^^^^
   |
-  = note: this error originates in the macro `proc_macro_call` (in Nightly builds, run with -Z macro-backtrace for more info)
+  = note: this error originates in the macro `proc_macro_call` which comes from the expansion of the macro `add_one` (in Nightly builds, run with -Z macro-backtrace for more info)
 
 warning: unused macro definition: `proc_macro_call`
- --> test-crate/proc-macro-hack-test/lib.rs
+ --> $DIR/lib.rs:6:1
   |
-  | / #[proc_macro_hack]
-  | | pub use demo_hack_impl::add_one;
+6 | / #[proc_macro_hack]
+7 | | pub use demo_hack_impl::add_one;
   | |_______________________________^
   |
   = note: `#[warn(unused_macros)]` on by default
 
 warning: unreachable expression
- --> tests/ui/proc_macro_hack.rs:8:32
+ --> $DIR/proc_macro_hack.rs:8:32
   |
 8 |     let nine = add_one!(two) + add_one!(2 + 3);
   |                -------------   ^^^^^^^^^^^^^^^ unreachable expression

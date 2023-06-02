@@ -1,41 +1,29 @@
-warning: panic message is not a string literal
-   --> src/lib.rs
-    |
-    |     panic!(AbortNow)
-    |     ------ ^^^^^^^^
-    |     |
-    |     help: use std::panic::panic_any instead: `std::panic::panic_any`
-    |
-    = note: `#[warn(non_fmt_panics)]` on by default
-    = note: this usage of panic!() is deprecated; it will be a hard error in Rust 2021
-    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2021/panic-macro-consistency.html>
-
 error: emit!(span, from) test
- --> tests/ui/emit.rs:4:7
+ --> $DIR/emit.rs:4:7
   |
 4 | emit!(one, two, three, four, five);
   |       ^^^
 
 error: emit!(span, expr1, expr2) test
- --> tests/ui/emit.rs:4:12
+ --> $DIR/emit.rs:4:12
   |
 4 | emit!(one, two, three, four, five);
   |            ^^^
 
 error: emit!(span, single_expr) test
- --> tests/ui/emit.rs:4:17
+ --> $DIR/emit.rs:4:17
   |
 4 | emit!(one, two, three, four, five);
   |                 ^^^^^
 
 error: Diagnostic::emit() test
- --> tests/ui/emit.rs:4:24
+ --> $DIR/emit.rs:4:24
   |
 4 | emit!(one, two, three, four, five);
   |                        ^^^^
 
 error: emit_call_site_error!(expr) test
- --> tests/ui/emit.rs:4:1
+ --> $DIR/emit.rs:4:1
   |
 4 | emit!(one, two, three, four, five);
   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -43,7 +31,7 @@ error: emit_call_site_error!(expr) test
   = note: this error originates in the macro `emit` (in Nightly builds, run with -Z macro-backtrace for more info)
 
 error: This is an error
-
+       
          = note: simple note
          = help: simple help
          = help: simple hint
@@ -53,8 +41,8 @@ error: This is an error
          = note: spanned simple note
          = note: spanned format note
          = note: Some note
-
- --> tests/ui/emit.rs:5:13
+       
+ --> $DIR/emit.rs:5:13
   |
 5 | emit_notes!(one, two);
   |             ^^^

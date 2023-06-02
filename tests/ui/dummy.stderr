@@ -1,17 +1,5 @@
-warning: panic message is not a string literal
-   --> src/lib.rs:472:12
-    |
-472 |     panic!(AbortNow)
-    |     ------ ^^^^^^^^
-    |     |
-    |     help: use std::panic::panic_any instead: `std::panic::panic_any`
-    |
-    = note: `#[warn(non_fmt_panics)]` on by default
-    = note: this usage of panic!() is deprecated; it will be a hard error in Rust 2021
-    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2021/panic-macro-consistency.html>
-
 error: set_dummy test
- --> tests/ui/dummy.rs:9:8
+ --> $DIR/dummy.rs:9:8
   |
 9 | dummy!(need_default);
   |        ^^^^^^^^^^^^

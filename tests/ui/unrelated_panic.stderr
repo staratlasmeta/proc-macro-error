@@ -1,17 +1,5 @@
-warning: panic message is not a string literal
-   --> src/lib.rs
-    |
-    |     panic!(AbortNow)
-    |     ------ ^^^^^^^^
-    |     |
-    |     help: use std::panic::panic_any instead: `std::panic::panic_any`
-    |
-    = note: `#[warn(non_fmt_panics)]` on by default
-    = note: this usage of panic!() is deprecated; it will be a hard error in Rust 2021
-    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2021/panic-macro-consistency.html>
-
 error: proc macro panicked
- --> tests/ui/unrelated_panic.rs:4:1
+ --> $DIR/unrelated_panic.rs:4:1
   |
 4 | unrelated_panic!();
   | ^^^^^^^^^^^^^^^^^^

@@ -1,8 +1,8 @@
 [package]
 name = "proc-macro-error"
-version = "1.0.4"
+version = "2.0.0"
 authors = ["CreepySkeleton <creepy-skeleton@yandex.ru>"]
-description = "Almost drop-in replacement to panics in proc-macros"
+description = "Almost drop-in replacement to panics in proc-macros (but a forked version that uses syn v2)"
 
 repository = "https://gitlab.com/CreepySkeleton/proc-macro-error"
 readme = "README.md"
@@ -25,14 +25,15 @@ proc-macro2 = "1"
 proc-macro-error-attr = { path = "./proc-macro-error-attr", version = "=1.0.4"}
 
 [dependencies.syn]
-version = "1"
+version = "2"
 optional = true
 default-features = false
+features = ["parsing"]
 
 [dev-dependencies]
 test-crate = { path = "./test-crate" }
 proc-macro-hack-test = { path = "./test-crate/proc-macro-hack-test" }
-trybuild = { version = "1.0.19", features = ["diff"] }
+trybuild = { version = "=1.0.19", features = ["diff"] }
 toml = "=0.5.2" # DO NOT BUMP
 serde_derive = "=1.0.107" # DO NOT BUMP
 
