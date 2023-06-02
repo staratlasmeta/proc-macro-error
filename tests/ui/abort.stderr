@@ -23,7 +23,7 @@ error: Diagnostic::abort() test
   |               ^^^
 
 error: This is an error
-
+       
          = note: simple note
          = help: simple help
          = help: simple hint
@@ -33,7 +33,7 @@ error: This is an error
          = note: spanned simple note
          = note: spanned format note
          = note: Some note
-
+       
  --> $DIR/abort.rs:8:14
   |
 8 | abort_notes!(one, two);

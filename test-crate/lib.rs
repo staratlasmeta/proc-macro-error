@@ -4,8 +4,8 @@ extern crate proc_macro;
 
 use proc_macro2::{Span, TokenStream};
 use proc_macro_error::{
-    abort, abort_call_site, diagnostic, emit_call_site_warning, emit_error, emit_warning,
-    proc_macro_error, set_dummy, Diagnostic, Level, OptionExt, ResultExt, SpanRange,
+    abort, abort_call_site, emit_call_site_warning, emit_error, emit_warning, proc_macro_error,
+    set_dummy, Diagnostic, Level, OptionExt, ResultExt, SpanRange,
 };
 
 use syn::{parse_macro_input, spanned::Spanned};
@@ -264,6 +264,7 @@ pub fn explicit_span_range(input: proc_macro::TokenStream) -> proc_macro::TokenS
 #[proc_macro_error]
 pub fn children_messages(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let mut spans = input.into_iter().step_by(2).map(|s| s.span());
+    // let span = Span::call_site();
     diagnostic!(spans.next().unwrap(), Level::Error, "main macro message")
         .span_error(spans.next().unwrap().into(), "child message".into())
         .emit();
@@ -271,5 +272,6 @@ pub fn children_messages(input: proc_macro::TokenStream) -> proc_macro::TokenStr
     let mut main = syn::Error::new(spans.next().unwrap().into(), "main syn::Error");
     let child = syn::Error::new(spans.next().unwrap().into(), "child syn::Error");
     main.combine(child);
+    // abort!(span, "hi");
     Diagnostic::from(main).abort()
 }
