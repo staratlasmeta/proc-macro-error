@@ -329,7 +329,7 @@ impl From<syn::Error> for Diagnostic {
                         _ => unreachable!(),
                     }
                 }
-                d => unreachable!("Tree: {}", d),
+                _ => unreachable!(),
             };
 
             let last = lit.span();
@@ -343,7 +343,6 @@ impl From<syn::Error> for Diagnostic {
         }
 
         let mut ts = err.to_compile_error().into_iter();
-
         let (span_range, msg) = gut_error(&mut ts).unwrap();
         // let span_range = SpanRange::call_site();
         // let msg = format!("{:?}", ts.map(|tt| tt.to_string()).collect::<Vec<_>>());
